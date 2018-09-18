@@ -41,17 +41,17 @@ class GiftCardBasicSpec extends Specification {
     def "negative amount redeemed"() {
         expect:
         fixture.given(new IssuedEvt("C1", 50))
-                .when(new RedeemCmd("C1", -1))
-                .expectException(IllegalArgumentException)
-                .expectExceptionMessage("amount <= 0")
+            .when(new RedeemCmd("C1", -1))
+            .expectException(IllegalArgumentException)
+            .expectExceptionMessage("amount <= 0")
     }
 
     def "zero amount redeemed"() {
         expect:
         fixture.given(new IssuedEvt("C1", 50))
-                .when(new RedeemCmd("C1", 0))
-                .expectException(IllegalArgumentException)
-                .expectExceptionMessage("amount <= 0")
+            .when(new RedeemCmd("C1", 0))
+            .expectException(IllegalArgumentException)
+            .expectExceptionMessage("amount <= 0")
     }
 
 }

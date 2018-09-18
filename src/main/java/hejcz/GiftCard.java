@@ -19,7 +19,7 @@ public class GiftCard {
 
     @CommandHandler // (3)
     public GiftCard(IssueCmd cmd) {
-        if(cmd.getAmount() <= 0) throw new IllegalArgumentException("amount <= 0");
+        if (cmd.getAmount() <= 0) throw new IllegalArgumentException("amount <= 0");
         AggregateLifecycle.apply(new IssuedEvt(cmd.getId(), cmd.getAmount())); // (4)
     }
 
@@ -31,8 +31,8 @@ public class GiftCard {
 
     @CommandHandler
     public void handle(RedeemCmd cmd) {
-        if(cmd.getAmount() <= 0) throw new IllegalArgumentException("amount <= 0");
-        if(cmd.getAmount() > remainingValue) throw new IllegalStateException("amount > remaining value");
+        if (cmd.getAmount() <= 0) throw new IllegalArgumentException("amount <= 0");
+        if (cmd.getAmount() > remainingValue) throw new IllegalStateException("amount > remaining value");
         AggregateLifecycle.apply(new RedeemedEvt(id, cmd.getAmount()));
     }
 
