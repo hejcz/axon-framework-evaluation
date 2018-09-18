@@ -1,5 +1,5 @@
 plugins {
-    id 'java'
+    id 'groovy'
     id 'org.springframework.boot' version '2.0.5.RELEASE'
     id "io.spring.dependency-management" version "1.0.6.RELEASE"
 }
@@ -16,4 +16,6 @@ dependencies {
     compile "org.springframework.boot:spring-boot-starter"
     compile "org.axonframework:axon-core:$AXON_VERSION"
     compile "org.axonframework:axon-spring-boot-starter:$AXON_VERSION"
+    testCompile "org.axonframework:axon-test:$AXON_VERSION"
+    testCompile 'org.spockframework:spock-core:1.1-groovy-2.4'
 }
